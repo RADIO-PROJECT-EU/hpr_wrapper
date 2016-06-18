@@ -3,7 +3,6 @@ import roslib, rospy
 from laser_analysis.msg import Analysis4MetersMsg
 from datetime import datetime
 import rospkg
-import subprocess, shlex
 
 analysis_topic = ''
 start_time = 0
