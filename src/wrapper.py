@@ -16,6 +16,7 @@ def init():
     robot_id = rospy.get_param("~robot_id", 0)
     rospy.Subscriber(analysis_topic, Analysis4MetersMsg, analysisCallback)
     rospack = rospkg.RosPack()
+    dt = datetime.now()
     filename = 'official_log_walk_'+datetime.today().strftime("%d-%m-%Y")+'_'+dt.strftime("%H%M%S")+'.csv'
     logs_path = rospack.get_path('hpr_wrapper') + '/logs/' + filename
     while not rospy.is_shutdown():
