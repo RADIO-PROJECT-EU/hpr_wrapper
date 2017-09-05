@@ -34,7 +34,8 @@ def nodeStateCallback(req):
     elif req.command == 1 and not running:
         dt = datetime.now()
         current_name = req.name
-        filename = 'official_log_walk_'+current_name+'_'+datetime.today().strftime("%d-%m-%Y")+'_'+dt.strftime("%H%M%S")+'.csv'
+        current_repetition = req.repetition
+        filename = 'official_log_walk_'+current_name+'_'+current_repetition+'_'+datetime.today().strftime("%d-%m-%Y")+'_'+dt.strftime("%H%M%S")+'.csv'
         logs_path = rospack.get_path('hpr_wrapper') + '/logs/' + filename
         hpr_sub = rospy.Subscriber(analysis_topic, Analysis4MetersMsg, analysisCallback)
         running = True
